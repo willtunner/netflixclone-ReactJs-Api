@@ -9,6 +9,7 @@
 .movieRow--listarea{
     /*  Tudo que passar da tela na horizontal vai ser cortado */
     overflow-x: hidden;
+    padding-left: 30px;
 }
 
 .movieRow--list{
@@ -20,10 +21,23 @@
     /*  Um item fica ao lado do outro */
     display: inline-block;
     width: 150px;
+    cursor: pointer;
 }
 
 /* No caso basta mudar o tamanho do item que a imagem se ajusta */
 .movieRow--item img {
     /*  Vai ter 100% da largura de 150px do item */
     width: 100%;
+
+    /* 
+    Diminue a imagem pelo css o deixando com 90%
+    serve para fazer animação tb
+    */
+    transform: scale(0.9); /* Separa as imagens no card */
+    transition: all ease 0.2s; /* Da um efeito mais suave na transição */   
+}
+
+.movieRow--item img:hover{
+    /* Transforma a imagem para 100% = 1 dando o efeito ao passar o mouse */
+    transform: scale(1);
 }
