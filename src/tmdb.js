@@ -72,7 +72,6 @@ export default {
             },
         ];
     },
-    // Pega as informações dos filmes
     getMovieInfo: async (movieId, type) => {
         let info = {};
 
@@ -91,5 +90,7 @@ export default {
                 break;
             } 
         }
+        return info;
+        
     }
 }

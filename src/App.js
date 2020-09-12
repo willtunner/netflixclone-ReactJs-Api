@@ -30,11 +30,12 @@ export default  () => {
 
       // Pega as informações da série em Tmdb
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+      setFeaturedData(chosenInfo);
 
       // Teste
-      console.log(chosenInfo);
+      //console.log(chosenInfo);
     }
-    
+
     loadAll();
   }, []);
 
