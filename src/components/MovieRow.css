@@ -1,0 +1,29 @@
+.movieRow{
+    margin-bottom: 30px;
+}
+
+.movieRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea{
+    /*  Tudo que passar da tela na horizontal vai ser cortado */
+    overflow-x: hidden;
+}
+
+.movieRow--list{
+    width: 9999999px;
+}
+
+/* Cada Filme = item */
+.movieRow--item {
+    /*  Um item fica ao lado do outro */
+    display: inline-block;
+    width: 150px;
+}
+
+/* No caso basta mudar o tamanho do item que a imagem se ajusta */
+.movieRow--item img {
+    /*  Vai ter 100% da largura de 150px do item */
+    width: 100%;
+}
