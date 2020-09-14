@@ -3,6 +3,7 @@ import Tmdb from './tmdb';
 import MovieRow from './components/MovieRow';
 import './App.css';
 import FeaturedMovie from './components/FeaturedMovie';
+import Header from './components/Header';
 
 export default  () => {
 
@@ -11,6 +12,9 @@ export default  () => {
 
   // Estado para o filme em destaque começa como nulo
   const [featuredData, setFeaturedData] = useState(null);
+
+  // Estado para mudar a cor do header quando der scroll na pagina
+  const [blackHeader, setBlackHeader] = useState(false);
 
   // Função executa assim que carrega o sistema
   useEffect(() => {
@@ -39,8 +43,33 @@ export default  () => {
     loadAll();
   }, []);
 
+  // Função para monitorar o scroll do mouse para mudar o background do header
+  useEffect(() => {
+    const scrollListener = () => {
+
+      // Se a posição do scroll no eixo y estiver maior que 10
+      if(window.scrollY > 150){
+        setBlackHeader(true); // seta o fundo para preto
+      }else{
+        setBlackHeader(false);// se não transparente
+      }
+    }
+
+    // Quando tiver um movimento de scroll na página executa a função do scrollListener
+    window.addEventListener('scroll', scrollListener);
+
+    // remove o evento quando sai da página
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, []);
+
   return (
     <div className="page">
+
+    {/* Passa para o component Header o estado criado acima */}
+    <Header black={blackHeader} />
+
       {/* se featuredData for true mostra o FeaturedMovie */}
       {featuredData && 
       <FeaturedMovie item={featuredData} />
