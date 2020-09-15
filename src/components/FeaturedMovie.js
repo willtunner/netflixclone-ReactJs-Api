@@ -5,6 +5,14 @@ export default ({ item }) => {
     // Pega as informaçõs que vem no item e passa para o console para testar e ver os nomes
     console.log(item);
 
+    // Pega as descrições
+    let  description = item.overview;
+
+    // Se o tamanho do texto for maior que 200 caracteres
+    if(description.length > 200 ){
+        description = description.substring(0, 200) + '...';
+    }
+
     // Pega o ano da serie em destaque completo, para destacar só o ano coloca o getFullYear()
     let firstDate = new Date(item.first_air_date);
     //console.log(firstDate);
@@ -38,7 +46,7 @@ export default ({ item }) => {
                         {/* Descrição do destaque */}
                     </div>
 
-                    <div className="featured--description">{item.overview}</div>
+                    <div className="featured--description">{description}</div>
                     {/* Botões Assistir  e trailer */}
                     <div className="featured--buttons">
                         <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a>

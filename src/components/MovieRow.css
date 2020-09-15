@@ -1,74 +1,85 @@
-.movieRow{
-    margin-bottom: 30px;
+.movieRow {
+  margin-bottom: 30px;
 }
 
 .movieRow h2 {
-    margin: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 30px;
 }
 
-.movieRow--listarea{
-    /*  Tudo que passar da tela na horizontal vai ser cortado */
-    overflow-x: hidden;
-    padding-left: 30px;
+.movieRow--listarea {
+  /*  Tudo que passar da tela na horizontal vai ser cortado */
+  overflow-x: hidden;
+  padding-left: 30px;
 }
 
 .movieRow--list {
-    transition: all ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 /* Cada Filme = item */
 .movieRow--item {
-    /*  Um item fica ao lado do outro */
-    display: inline-block;
-    width: 150px;
-    cursor: pointer;
+  /*  Um item fica ao lado do outro */
+  display: inline-block;
+  width: 150px;
+  cursor: pointer;
 }
 
 /* No caso basta mudar o tamanho do item que a imagem se ajusta */
 .movieRow--item img {
-    /*  Vai ter 100% da largura de 150px do item */
-    width: 100%;
+  /*  Vai ter 100% da largura de 150px do item */
+  width: 100%;
 
-    /* 
+  /* 
     Diminue a imagem pelo css o deixando com 90%
     serve para fazer animação tb
     */
-    transform: scale(0.9); /* Separa as imagens no card */
-    transition: all ease 0.2s; /* Da um efeito mais suave na transição */   
+  transform: scale(0.9); /* Separa as imagens no card */
+  transition: all ease 0.2s; /* Da um efeito mais suave na transição */
 }
 
-.movieRow--item img:hover{
-    /* Transforma a imagem para 100% = 1 dando o efeito ao passar o mouse */
-    transform: scale(1);
+.movieRow--item img:hover {
+  /* Transforma a imagem para 100% = 1 dando o efeito ao passar o mouse */
+  transform: scale(1);
 }
 
 /* COMEÇA A PARTE DAS SETAS ESQUERDA/DIRETA DE CADA CATEGORIA */
-.movieRow--left, .movieRow--right{
-    position: absolute; /* Fica meio que flutuando */
-    width: 40px;
-    height: 225px;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 99; /*Deixa por cima das capas dos filmes mas abaixo do header*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;/*IMPORTANTE - tira a barra de scroll horizontal que sobra*/
-    cursor: pointer;
-    opacity: 0; /* Setas ficam invisiveis e só muda quando passa o mouse*/
-    transition: all ease 0.5s;
+.movieRow--left,
+.movieRow--right {
+  position: absolute; /* Fica meio que flutuando */
+  width: 40px;
+  height: 225px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99; /*Deixa por cima das capas dos filmes mas abaixo do header*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /*IMPORTANTE - tira a barra de scroll horizontal que sobra*/
+  cursor: pointer;
+  opacity: 0; /* Setas ficam invisiveis e só muda quando passa o mouse*/
+  transition: all ease 0.5s;
 }
 
 /* CADA SETA PARA SEU LADO*/
-.movieRow--left{
-    left: 0;
+.movieRow--left {
+  left: 0;
 }
 
-.movieRow--right{
-    right: 0;
+.movieRow--right {
+  right: 0;
 }
 
 /*Quando passa o mouse no listArea dos filmes/series*/
 .movieRow:hover .movieRow--left,
-.movieRow:hover .movieRow--right{
-opacity: 1;
+.movieRow:hover .movieRow--right {
+  opacity: 1;
+}
+
+/* VERSÃO PARA MOBILE*/
+
+/*Quando a tela for até 760px*/
+@media (max-width: 760px) {
+  .movieRow--left,
+  .movieRow--right {
+    opacity: 1;
+  }
 }
