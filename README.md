@@ -12,7 +12,7 @@
 ![](src/img/01.jpg)
 
 ### Imagem 02
-![](src/img/02.jpg)
+![](src/img/03.jpg)
 
 ## Como usar:
 1. Abra o projeto 
