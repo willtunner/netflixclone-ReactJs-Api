@@ -5,7 +5,7 @@ import './App.css';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
 
-export default  () => {
+export default () => {
 
   // Cria a lista para ser exibida
   const [movieList, setMovieList] = useState([]);
@@ -28,7 +28,7 @@ export default  () => {
       let originals = list.filter(i => i.slug === 'originals'); // pega a lista e filtra pelo slug que está no arquivo tmdb.js
       // Pegando um originals aleatório e arredonda para baixo em -1
       // Pega um numero aleatório e multiplica pela quantidade de items começando do 0 o indice, subtrai com -1 pq o array começa do 0
-      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1));
+      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
       // exibindo o filme escolhido
       let chosen = originals[0].items.results[randomChosen];
 
@@ -48,9 +48,9 @@ export default  () => {
     const scrollListener = () => {
 
       // Se a posição do scroll no eixo y estiver maior que 10
-      if(window.scrollY > 150){
+      if (window.scrollY > 150) {
         setBlackHeader(true); // seta o fundo para preto
-      }else{
+      } else {
         setBlackHeader(false);// se não transparente
       }
     }
@@ -67,25 +67,35 @@ export default  () => {
   return (
     <div className="page">
 
-    {/* Passa para o component Header o estado criado acima */}
-    <Header black={blackHeader} />
+      {/* Passa para o component Header o estado criado acima */}
+      <Header black={blackHeader} />
 
       {/* se featuredData for true mostra o FeaturedMovie */}
-      {featuredData && 
-      <FeaturedMovie item={featuredData} />
+      {featuredData &&
+        <FeaturedMovie item={featuredData} />
       }
-      
+
       <section className="lists">
-        {movieList.map((item, key) =>(
-          <MovieRow  key={key} title={item.title} items={item.items}/>
+        {movieList.map((item, key) => (
+          <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
 
       <footer>
         Feito com <span role="img" aria-label="coração">💗</span> pela GreenCode <br />
-        Direitos de imagem para Netflix< br/>
+        Direitos de imagem para Netflix< br />
         Dados pedos do site Themoviedb.org
       </footer>
+
+      {/* 
+      Carrega o loading na tela 
+      se o movieList não tiver nada mostra o loading
+      */}
+      {movieList.length <= 0 &&
+        <div className="loading">
+          <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2000,c_limit/Netflix_LoadTime.gif" alt="carregando" />
+        </div>
+      }
     </div>
   );
 }

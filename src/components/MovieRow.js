@@ -5,7 +5,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 export default ({ title, items }) => {
     //Estado para armazenar posição da lista para scrollar pelas setas
-    const [scrollX, setScrollX] = useState(-400);
+    const [scrollX, setScrollX] = useState(0);
 
     // Funções de clique nas setas esquerda e direita
     const handleLeftArrow = () => {
