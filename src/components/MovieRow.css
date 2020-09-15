@@ -12,8 +12,8 @@
     padding-left: 30px;
 }
 
-.movieRow--list{
-    width: 9999999px;
+.movieRow--list {
+    transition: all ease 0.5s;
 }
 
 /* Cada Filme = item */
@@ -40,4 +40,35 @@
 .movieRow--item img:hover{
     /* Transforma a imagem para 100% = 1 dando o efeito ao passar o mouse */
     transform: scale(1);
+}
+
+/* COMEÇA A PARTE DAS SETAS ESQUERDA/DIRETA DE CADA CATEGORIA */
+.movieRow--left, .movieRow--right{
+    position: absolute; /* Fica meio que flutuando */
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99; /*Deixa por cima das capas dos filmes mas abaixo do header*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;/*IMPORTANTE - tira a barra de scroll horizontal que sobra*/
+    cursor: pointer;
+    opacity: 0; /* Setas ficam invisiveis e só muda quando passa o mouse*/
+    transition: all ease 0.5s;
+}
+
+/* CADA SETA PARA SEU LADO*/
+.movieRow--left{
+    left: 0;
+}
+
+.movieRow--right{
+    right: 0;
+}
+
+/*Quando passa o mouse no listArea dos filmes/series*/
+.movieRow:hover .movieRow--left,
+.movieRow:hover .movieRow--right{
+opacity: 1;
 }

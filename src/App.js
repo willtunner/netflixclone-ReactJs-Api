@@ -80,6 +80,12 @@ export default  () => {
           <MovieRow  key={key} title={item.title} items={item.items}/>
         ))}
       </section>
+
+      <footer>
+        Feito com <span role="img" aria-label="coração">💗</span> pela GreenCode <br />
+        Direitos de imagem para Netflix< br/>
+        Dados pedos do site Themoviedb.org
+      </footer>
     </div>
   );
 }
@@ -87,3 +93,8 @@ export default  () => {
 
 // https://www.youtube.com/watch?v=tBweoUiMsDg
 // https://fonts.google.com/specimen/Roboto?query=roboto&sidebar.open=true&selection.family=Roboto:wght@400;700
+/**
+ * Instalado o Material-ui
+ * npm install @material-ui/core
+ * npm install @material-ui/icons
+ */
