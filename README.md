@@ -8,10 +8,10 @@
 
 ## Imagens do projeto
 
-### Tamanho web
-![](src/img/01jpg)
+### Imagem 01
+![](src/img/01.jpg)
 
-### Tamanho Tablet
+### Imagem 02
 ![](src/img/02.jpg)
 
 ## Como usar:
